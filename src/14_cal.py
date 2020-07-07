@@ -31,25 +31,20 @@ import sys
 import calendar
 from datetime import datetime
 
-num_args = len(sys.argv)
 cal = calendar.TextCalendar()
+d = datetime.today()
 
-month = datetime.now().month
-year = datetime.now().year
-
-if num_args == 1:
-    pass
-
-elif num_args == 2:
-    month = int(sys.argv[1])
-
-elif num_args == 3:
-    month = int(sys.argv[1])
-    year = int(sys.argv[2])
-
+if len(sys.argv) == 1:
+  print(cal.prmonth(d.year, d.month))
+  
+elif len(sys.argv) == 2:
+  month = int(sys.argv[1])
+  print(cal.prmonth(d.year, month))
+  
+elif len(sys.argv) == 3:
+  month = int(sys.argv[1])
+  year = int(sys.argv[2])
+  print(cal.prmonth(year, month))
+  
 else:
-    print("usage: cal.py [month] [year]")
-
-    sys.exist(1)
-
-    cal.month(year, month)
+    print("format should be [month][year]") 
